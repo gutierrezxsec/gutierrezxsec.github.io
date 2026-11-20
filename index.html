@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rafael Gabriel Gutierrez | IT Graduate</title>
+<meta name="description" content="Portfolio of Rafael Gabriel Gutierrez, BS Information Technology graduate seeking an entry-level IT Support or Helpdesk role.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #151517;
+    --ink-soft: #52525b;
+    --line: #cfcfd6;
+    --line-soft: #e8e8ed;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 24px; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Roboto Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 14px; line-height: 1.7;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .page { max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 4rem); }
+
+  /* ========== NAVIGATION ========== */
+  nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem 1.5rem; padding: 2rem 0; }
+  .brand { font-weight: 600; text-decoration: none; }
+  .nav-links { display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem 1.1rem; font-size: 13px; letter-spacing: 0.02em; }
+  .nav-links a { text-decoration: none; opacity: 0.75; transition: opacity 0.2s ease; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-links span { color: var(--line); }
+
+  /* ========== BUTTONS ========== */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 0.65em 1.4em;
+    font-family: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
+    text-decoration: none; border-radius: 1em; cursor: pointer; white-space: nowrap;
+    border: 1px solid transparent;
+    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  }
+  .btn-solid { color: var(--bg); background: var(--ink); border-color: var(--ink); }
+  .btn-solid:hover { transform: translateY(-2px); }
+  .btn-outline { color: var(--ink); background: transparent; border-color: var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: var(--bg); }
+  .btn-ghost { color: var(--ink); background: transparent; border-color: var(--line); }
+
+/* ========== COPY FIELD (email + copy button) ========== */
+.copy-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 44px;
+  padding: 0.3rem 0.3rem 0.3rem 1.1rem;
+  background: var(--line-soft);
+  border: 1px solid var(--line-soft);
+  border-radius: 1em;
+}
+.copy-field-text { font-size: 13px; text-decoration: none; }
+.copy-field-text:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.copy-field-btn {
+  min-width: 4.75rem;
+  padding: 0.4em 0.8em;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+              background 0.18s ease, color 0.18s ease;
+}
+.copy-field-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); }
+.copy-field-btn:active { transform: none; box-shadow: none; }
+.copy-field-btn.is-copied { color: var(--bg); background: var(--ink); border-color: var(--ink); }
+
+/* Hidden text for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+ 
+#copy-email { min-width: 8.5rem; }
+  /* ========== MAIN GRID ========== */
+  .top {
+    display: grid; grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(3rem, 10vw, 9rem);
+    padding: 3rem 0 6rem; align-items: start;
+  }
+
+  /* ========== HERO ========== */
+  .hero { display: flex; flex-direction: column; gap: 1.75rem; }
+  .eyebrow { font-size: 13px; color: var(--ink-soft); letter-spacing: 0.04em; }
+  .eyebrow::before { content: "> "; }
+  .name { font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; margin: 0; }
+  .name .cursor { display: inline-block; width: 0.5ch; background: var(--ink); color: transparent; animation: blink 1.1s steps(1) infinite; }
+  @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .name .cursor { animation: none; } }
+  .tagline {
+  font-size: 15px;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0;
+  text-align: justify;
+  hyphens: auto;
+  text-wrap: pretty;
+}
+
+  /* ========== PROFILE ========== */
+  .avatar {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+}
+.avatar-wrap { position: relative; flex-shrink: 0; }
+
+.avatar-badge {
+  position: absolute;
+  left: 50%;
+  bottom: 0.9rem;
+  transform: translate(-50%, 6px);
+  padding: 0.3em 0.9em;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  color: var(--bg);
+  background: var(--ink);
+  border-radius: 100em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.avatar-wrap:hover .avatar-badge {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.hero-head { display: flex; align-items: center; gap: 1.5rem; }
+.hero-head > div { min-width: 0; }
+.hero-head .avatar { flex-shrink: 0; flex-wrap: wrap; }
+
+  .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line-soft); font-size: 12px; color: var(--ink-soft); }
+  .meta-row span { display: block; color: var(--ink); font-size: 14px; font-weight: 600; margin-top: 0.2rem; }
+
+
+  /* ========== FEATURED PROJECTS PANEL ========== */
+  #projects { padding-top: 0.5rem; }
+  .panel-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.25rem; }
+  .panel-title { font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin: 0; font-weight: 400; }
+  .panel-link { font-size: 13px; text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
+  .project { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.35rem 0; border-top: 1px solid var(--line-soft); transition: padding-left 0.2s ease; }
+  .project:last-child { border-bottom: 1px solid var(--line-soft); }
+  .project:hover { padding-left: 0.4rem; }
+  .project-name { font-size: 15px; font-weight: 600; margin: 0; }
+  .project-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.6; max-width: 44ch; margin: 0; }
+  .project-tags { display: flex; gap: 0.5rem; margin-top: 0.3rem; flex-wrap: wrap; list-style: none; padding: 0; margin-bottom: 0; }
+  .project-tags li { font-size: 12px; letter-spacing: 0.03em; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 100em; padding: 0.15em 0.75em; }
+  /* Stretched link: makes the whole card clickable */
+.project { position: relative; }
+.project-link { color: inherit; text-decoration: none; }
+.project-link::after { content: ""; position: absolute; inset: 0; }
+.project:hover .project-name,
+.project-link:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+  /* ========== ABOUT / EDUCATION / SKILLS / CONTACT ========== */
+  .info { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(2rem, 6vw, 5rem); padding: 4rem 0; border-top: 1px solid var(--line-soft); }
+  .info p, .info li { margin: 0 0 0.9rem; }
+  .info .panel-title { margin-bottom: 1.25rem; }
+  .info .soft { color: var(--ink-soft); }
+  .info ul { list-style: none; margin: 0; padding: 0; }
+  .info strong { font-weight: 600; }
+
+  #about p {
+  text-align: justify;
+  hyphens: none;
+  text-wrap: pretty;
+
+}
+/* ========== CERTIFICATIONS ========== */
+
+.info .card--wide { grid-column:1 / -1; }
+
+.cert-list { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); column-gap:1rem; row-gap:1.25rem; margin:0; padding:0; list-style:none; }
+.info .cert-list li { display:grid; grid-template-columns:56px minmax(0, 1fr) auto; align-items:center; gap:1rem; margin:0; padding:1.25rem 1.5rem; border:1px solid var(--line-soft); border-radius:.6rem; transition:border-color .25s ease; }
+.info .cert-list li:hover { border-color:var(--ink); }
+.cert-icon { display:flex; align-items:center; justify-content:center; }
+.cert-icon { position:relative; width:56px; height:56px; overflow:hidden; background:none; border:0; border-radius:0; padding:0; }
+.cert-icon img {
+  position:absolute; top:50%; left:50%;
+  width:100%; height:100%;
+  object-fit:cover;
+  transform:translate(calc(-50% + var(--x, 0px)), calc(-50% + var(--y, 0px))) scale(var(--crop, 1.2));
+  mix-blend-mode:multiply;
+}
+.cert-icon img[src*="centri"] { --crop:1.25; --y:-3px; }
+.cert-info { display:flex; flex-direction:column; gap:.1rem; min-width:0; }
+.cert-name { font-size:14px; font-weight:600; line-height:1.4; }
+.cert-issuer { font-size:13px; color:var(--ink-soft); }
+.cert-link { padding:.35em .9em; font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; color:var(--ink); border:1px solid var(--line); border-radius:.5rem; }
+.cert-link:hover { text-decoration:underline; text-underline-offset:4px; }
+
+@media (max-width: 760px) {
+  .cert-list { grid-template-columns:minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .info .cert-list li { grid-template-columns:clamp(40px, 12vw, 52px) minmax(0, 1fr); }
+  .cert-link { grid-column:2; justify-self:start; }
+}
+/* ========== SKILLS ========== */
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;                          /* between groups */
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.skills .panel-title { margin: 0; }
+
+.skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;                        /* title to pills */
+}
+.skill-group-title { margin: 0; font-size: 12px; font-weight: 600; }
+.skill-note { margin-left: 0.4rem; font-size: 11px; font-weight: 400; color: var(--ink-soft); }
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;                        /* between pills */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.skill-list li {
+  padding: 0.25em 0.9em;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: var(--ink);
+  background: var(--line-soft);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+}
+
+/* "Currently learning" pills: dashed and unfilled */
+.skill-list--learning li { background: transparent; border-style: dashed; }
+
+/* ========== HEADING POP (when a nav link is clicked) ========== */
+@media (prefers-reduced-motion: no-preference) {
+  :target > .panel-title,
+  :target > div > .panel-title,
+  :target .panel-header .panel-title {
+    transform-origin: left center;
+    animation: heading-pop 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s backwards;
+  }
+}
+
+@keyframes heading-pop {
+  0%   { transform: scale(1);    color: var(--ink-soft); }
+  25%  { transform: scale(1.35) rotate(-3deg); color: var(--ink); }
+  45%  { transform: scale(1.2)  rotate(2.5deg); color: var(--ink); }
+  65%  { transform: scale(1.28) rotate(-1.5deg); color: var(--ink); }
+  100% { transform: scale(1);    color: var(--ink-soft); }
+}
+
+/* ========== EDUCATION PROJECT ========== */
+.edu-project { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--line-soft); }
+.edu-project-title { margin: 0 0 0.5rem; font-size: 14px; font-weight: 600; }
+.edu-project-title .soft { font-weight: 400; }
+.edu-list { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.75rem; }
+.edu-list li { margin: 0; font-size: 13px; }
+
+/* ========== CARDS ========== */
+.info .card {
+  padding: 1.75rem;
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
+  border-radius: 0.75rem;
+  transition: border-color 0.25s ease;
+}
+.info .cert-list li { transition: border-color .25s ease; }
+.info .cert-list li:hover { border-color: var(--ink); }
+.cert-info { flex:1; }
+.cert-icon { flex-shrink:0; display:grid; place-items:center; width:64px; height:44px; padding:6px; background:var(--bg); border:1px solid var(--line); border-radius:.6rem; }
+.cert-icon img { display:block; width:100%; height:100%; object-fit:contain; }
+.info .card > :last-child,
+.info .card li:last-child { margin-bottom: 0; }
+
+/* Card hover and nav jump: border only */
+.info #certifications:hover { border-color: var(--line-soft); }
+.info .card:hover,
+.info .card:target {
+  border-color: var(--ink);
+}
+
+.info .card .panel-title {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  margin-left: -0.75rem;
+  border-radius: 0.6rem;
+}
+
+#contact { padding: 4rem 0 5rem; border-top: 1px solid var(--line-soft); display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(3rem, 10vw, 9rem); align-items: start; }
+#contact p { margin: 0 0 1.25rem; max-width: 36ch; }
+
+footer { padding: 0 0 2.5rem; font-size: 12px; color: var(--ink-soft); }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 860px) {
+    .top, #contact { grid-template-columns: 1fr; }
+    .top { padding: 1rem 0 4rem; gap: 3rem; }
+    .info { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 0; }
+    #contact { padding: 3rem 0 4rem; gap: 1.5rem; }
+  }
+  @media (max-width: 520px) {
+    .nav-links span { display: none; }
+    .nav-links { gap: 0.3rem 1rem; }
+    .cta-row .btn { flex: 1 1 calc(50% - 0.75rem); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav aria-label="Main">
+    <a class="brand" href="#top">MICRO~</a>
+    <div class="nav-links">
+      <a href="#about">About</a><span>/</span>
+      <a href="#education">Education</a><span>/</span>
+       <a href="#skills">Skills</a><span>/</span>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <div class="top">
+      <!-- LEFT: HERO -->
+       
+      <section class="hero reveal">
+  <div class="hero-head">
+    <img class="avatar" src="pfp.jpg" alt="Portrait of Rafael Gabriel Gutierrez" width="112" height="112">
+    <span class="avatar-badge" aria-hidden="true">Open to work</span>
+    <div>
+      <div class="eyebrow">whoami</div>
+      <h1 class="name">Rafael Gabriel Gutierrez</h1>
+    </div>
+  </div>
+        <p class="tagline">IT graduate based in Marikina City looking for entry-level IT Support or operations roles while building toward Cybersecurity. Naturally curious, I enjoy reading tech news and learning through hands-on projects rather than just theory and currently focused on phishing email threat analysis, with SIEM and SOC workflows next and willing to learn new skill</p>
+
+        <div class="cta-row">
+          <!-- Put your resume PDF in the same folder and name it resume.pdf -->
+          <a href="cv/cv.pdf" class="btn btn-solid">Download resume</a>
+          <a href="https://linkedin.com/in/rg-gutierrez" class="btn btn-ghost">LinkedIn</a>
+          <a href="https://github.com/gutierrezxsec" class="btn btn-ghost">GitHub</a>
+        </div>
+
+                <div class="meta-row">
+          <div>Based in<span>Marikina City, PH</span></div>
+          <div>Focus<span>IT Support</span></div>
+          <div>Status<span>Open to work</span></div>
+        </div>
+
+        <section id="skills" class="skills" aria-labelledby="skills-title">
+  <h2 class="panel-title" id="skills-title">Skills</h2>
+
+  <div class="skill-group">
+    <h3 class="skill-group-title">IT Support</h3>
+    <ul class="skill-list">
+      <li>Troubleshooting</li>
+      <li>Windows</li>
+      <li>Linux basics</li>
+      <li>Networking basics</li>
+    </ul>
+  </div>
+
+  <div class="skill-group">
+    <h3 class="skill-group-title">Web and automation <span class="skill-note">AI-assisted</span></h3>
+    <ul class="skill-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>PHP</li>
+      <li>Google Apps Script</li>
+      <li>Google Sheets</li>
+    </ul>
+  </div>
+
+  <div class="skill-group">
+    <h3 class="skill-group-title">Currently learning</h3>
+    <ul class="skill-list skill-list--learning">
+      <li>SOC analysis</li>
+      <li>SIEM (Splunk)</li>
+    </ul>
+  </div>
+</section>
+
+      </section>
+
+      <!-- RIGHT: FEATURED PROJECTS -->
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="panel-header">
+          <h2 class="panel-title" id="projects-title">Featured projects</h2>
+          <a class="panel-link" href="https://github.com/gutierrezxsec">View All</a>
+        </div>
+        <div class="project">
+          <h3 class="project-name">
+            <a class="project-link" href="https://github.com/gutierrezxsec/Task-Monitoring-Project.git" target="_blank" rel="noopener noreferrer"></a>Task Monitoring System</h3>
+          <p class="project-desc">A web app for assigning, tracking, and reporting tasks across sections, with a performance dashboard and email notifications. Deployed for use at CDA Region V.</p>
+          <ul class="project-tags"><li>Apps Script</li><li>Google Sheets</li><li>JavaScript</li></ul>
+        </div>
+        <div class="project">
+          <h3 class="project-name">
+            <a class="project-link" href="https://github.com/gutierrezxsec/ssh-bruteforce-detection-splunk.git" target="_blank" rel="noopener noreferrer"></a>SSH Brute Force Detection in Splunk</h3>
+          <p class="project-desc">Simulated an attack across two physical machines, forwarded the victim's logs to Splunk, and detect the attack</p>
+          <ul class="project-tags"><li>Homelab</li><li>Networking</li><li>Cybersecurity</li><li>Linux</li></ul>
+        </div>
+        <div class="project">
+          <h3 class="project-name">
+            <a class="project-link" href="https://github.com/gutierrezxsec/Phishing-Email-Analysis.git" target="_blank" rel="noopener noreferrer"></a>Phishing Email Analysis</h3>
+          <p class="project-desc">Triage reports using real public samples, analyzing headers, URLs, attachments, and threat indicators with safe analysis tools.</p>
+          <ul class="project-tags"><li>MITRE ATT&CK</li><li>Social Engineering</li><li>Threat Intelligence</li></ul>
+          <!-- Link your GitHub repo or write-up here once it's ready -->
+        </div>
+
+        <div class="project">
+          <h3 class="project-name">
+            <a class="project-link" href="https://github.com/gutierrezxsec/Network-Reconnaissance-Detection.git" target="_blank" rel="noopener noreferrer"></a>Network Reconnaissance Detection</h3>
+          <p class="project-desc">Hands-on Tier 1 SOC lab analyzing network traffic in Splunk using the BOTSv3 dataset. Built a custom detection rule for anomalous behavior and mapped the findings to MITRE ATT&CK.</p>
+          <ul class="project-tags"><li>MITRE ATT&CK</li><li>Splunk</li><li>SIEM Monitoring</li><li>Alert Creation</li></ul>
+          <!-- Link your GitHub repo or write-up here once it's ready -->
+        </div>
+
+      </section>
+    </div>
+
+    <!-- ABOUT / EDUCATION / SKILLS -->
+    <div class="info">
+      <section id="certifications" class="card card--wide" aria-labelledby="certs-title">
+  <h2 class="panel-title" id="certs-title">Certifications</h2>
+  <ul class="cert-list">
+  <li>
+    <span class="cert-icon"><img src="logos/centri1.png" alt="" width="64" height="32"></span>
+    <div class="cert-info">
+      <span class="cert-name">Blue Team Junior Analyst (BTJA)</span>
+      <span class="cert-issuer">Centri (formerly Security Blue Team)</span>
+    </div>
+    <a class="cert-link" href="certs/Blue_Team_Junior_Analyst.pdf" target="_blank" rel="noopener noreferrer">View certificate</a>
+  </li>
+  <li>
+    <span class="cert-icon"><img src="https://cdn.simpleicons.org/cisco" alt="" width="64" height="32"></span>
+    <div class="cert-info">
+      <span class="cert-name">IT Customer Support Basics</span>
+      <span class="cert-issuer">Cisco Networking Academy</span>
+    </div>
+    <a class="cert-link" href="https://www.credly.com/badges/15963e80-14b4-4214-bb27-46fe5895c216/public_url" target="_blank" rel="noopener noreferrer">Verify</a>
+  </li>
+  <li>
+    <span class="cert-icon"><img src="https://cdn.simpleicons.org/cisco" alt="" width="64" height="32"></span>
+    <div class="cert-info">
+      <span class="cert-name">Network Support and Security</span>
+      <span class="cert-issuer">Cisco Networking Academy</span>
+    </div>
+    <a class="cert-link" href="https://www.credly.com/badges/1d25700d-4a2f-4f27-b44e-c0fef596528a/public_url" target="_blank" rel="noopener noreferrer">Verify</a>
+  </li>
+  <li>
+    <span class="cert-icon"><img src="https://cdn.simpleicons.org/cisco" alt="" width="64" height="32"></span>
+    <div class="cert-info">
+      <span class="cert-name">Cyber Threat Management</span>
+      <span class="cert-issuer">Cisco Networking Academy</span>
+    </div>
+    <a class="cert-link" href="https://www.credly.com/badges/57b55d03-6e53-47fd-ac99-fa2aa3bcfb6f/public_url" target="_blank" rel="noopener noreferrer">Verify</a>
+  </li>
+  <li>
+    <span class="cert-icon"><img src="https://cdn.simpleicons.org/cisco" alt="" width="64" height="32"></span>
+    <div class="cert-info">
+      <span class="cert-name">Introduction to Cybersecurity</span>
+      <span class="cert-issuer">Cisco Networking Academy</span>
+    </div>
+    <a class="cert-link" href="https://www.credly.com/badges/dd007bd1-b0fc-4abd-9146-f662c992675f/public_url" target="_blank" rel="noopener noreferrer">Verify</a>
+  </li>
+</ul>
+</section>
+      <section id="about" class="card reveal" aria-labelledby="about-title">
+        <h2 class="panel-title" id="about-title">About</h2>
+        <p>I am an Information Technology graduate based in Marikina City, Philippines, targeting entry-level IT Support, IT Staff, and Helpdesk roles. By nature, I am a curious researcher who enjoys following technological advancements, troubleshooting system issues, and understanding how enterprise environments operate under the hood.
+During my internship, I gained hands-on experience supporting daily IT operations, managing data handling and integrity workflows. Outside of formal work, I run my own home lab environments to practice Windows and Linux, basic network analysis, and structured troubleshooting.</p>
+        <p class="soft">My longer-term goal is to become a Cybersecurity professional. I'm working toward it through hands-on homelabs, starting with IT support because it builds the foundation.</p>
+      </section>
+
+      <section id="education" class="card reveal" aria-labelledby="education-title" style="--delay:120ms">
+  <h2 class="panel-title" id="education-title">Education</h2>
+  <p><strong>BS Information Technology</strong></p>
+  <p class="soft">Partido State University<br>Dean's Lister, GWA 1.75</p>
+
+  <div class="edu-project">
+    <h3 class="edu-project-title">PAINTANAN — Multiplayer Maze Game 2nd Place Overall [Gamefest]</span></h3>
+    <p class="soft">Co-developed a multiplayer maze game for an academic competition.</p>
+    <ul class="edu-list">
+      <li><strong>Technical:</strong> <span class="soft">Assisted in testing, debugging, and troubleshooting multiplayer game logic and user interactions to help maintain stable performance during live evaluation.</span></li>
+      <li><strong>Collaboration:</strong> <span class="soft">Worked closely under a team lead and alongside fellow developers to meet milestones and deliver a complete, working project on schedule.</span></li>
+    </ul>
+  </div>
+</section>
+
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div>
+        <h2 class="panel-title" id="contact-title" style="margin-bottom:1.25rem">Contact</h2>
+        <p>I'm open to entry-level IT roles. The quickest way to reach me is email.</p>
+        
+      </div>
+      <div class="cta-row" style="margin-top:2.2rem">
+<div class="copy-field">
+  <a class="copy-field-text" href="mailto:gutierrezxsec@gmail.com">gutierrezxsec@gmail.com</a>
+  <button type="button" class="copy-field-btn" id="copy-email"
+          data-email="gutierrezxsec@gmail.com"
+          aria-label="Copy email address">Copy</button>
+  <span class="sr-only" role="status" id="copy-status"></span>
+</div>
+  <a href="cv/cv.pdf" class="btn btn-solid">Download resume</a>
+  <a href="https://linkedin.com/in/rg-gutierrez" class="btn btn-ghost">LinkedIn</a>
+  <a href="https://github.com/gutierrezxsec" class="btn btn-ghost">GitHub</a>
+</div>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 Rafael Gabriel Gutierrez &nbsp; <a href="#top">Back to top</a></footer>
+</div>
+
+<script>
+  const copyBtn = document.getElementById('copy-email');
+
+  if (copyBtn) {
+    const status = document.getElementById('copy-status');
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(copyBtn.dataset.email);
+        copyBtn.textContent = 'Copied!';
+        copyBtn.classList.add('is-copied');
+        status.textContent = 'Email copied';
+      } catch {
+        copyBtn.textContent = 'Failed';
+        status.textContent = 'Copy failed';
+      }
+      setTimeout(() => {
+        copyBtn.textContent = 'Copy';
+        copyBtn.classList.remove('is-copied');
+        status.textContent = '';
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
